@@ -294,3 +294,34 @@
     transform: scale(1.1) translateX(0) rotate(15deg);
   }
 }
+
+@media (max-width: 480px) {
+  .campaignSection {
+    padding: 60px 0;
+  }
+  .campaignCard {
+    padding: 32px 24px;
+    border-radius: 32px;
+  }
+  .cardTitle {
+    font-size: 32px;
+  }
+  .cardSubtitle {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  .cardWheelWrap {
+    width: 200px;
+    height: 200px;
+  }
+  .modal {
+    padding: 32px 24px;
+  }
+  .modalTitle {
+    font-size: 28px;
+  }
+  .canvas {
+    width: 260px;
+    height: 260px;
+  }
+}

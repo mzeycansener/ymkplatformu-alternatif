@@ -218,4 +218,17 @@
     width: 100%;
     padding: 20px;
   }
+  .featuredTitle {
+    font-size: 28px;
+  }
+  .featuredDesc {
+    font-size: 15px;
+  }
+  .featuredMeta {
+    font-size: 15px;
+  }
+  .featuredBtn {
+    width: 100%;
+    text-align: center;
+  }
 }

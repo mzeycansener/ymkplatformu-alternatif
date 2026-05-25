@@ -131,3 +131,23 @@
     height: 300px;
   }
 }
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 0;
+  }
+  .heading {
+    font-size: 40px;
+  }
+  .subtext {
+    font-size: 16px;
+    max-width: 100%;
+  }
+  .statsRow {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .ctaBtn {
+    width: 100%;
+  }
+}

@@ -224,6 +224,12 @@
     max-height: 95vh;
     border-radius: 12px 12px 0 0;
   }
+  .header {
+    height: 180px;
+  }
+  .storeName {
+    font-size: 28px;
+  }
   .headerContent {
     left: 16px; right: 16px;
   }
