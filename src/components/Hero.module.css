@@ -1,0 +1,133 @@
+.hero {
+  width: 100%;
+  background-color: var(--color-ink);
+  padding: 72px 0;
+}
+
+.heroInner {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Left Column */
+.leftCol {
+  width: 55%;
+}
+
+.overline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.heading {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 72px;
+  color: #FAFAF8;
+  line-height: 1.08;
+  margin-top: 16px;
+}
+
+.subtext {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #A1A1AA;
+  margin-top: 16px;
+  max-width: 90%;
+  line-height: 1.5;
+}
+
+.statsRow {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statDivider {
+  width: 1px;
+  height: 32px;
+  background-color: #3F3F46;
+}
+
+.statNumber {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #FAFAF8;
+}
+
+.statLabel {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  color: #71717A;
+  margin-top: 4px;
+}
+
+.ctaBtn {
+  background-color: var(--color-accent);
+  color: white;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 6px;
+  margin-top: 40px;
+  transition: background-color 0.2s ease;
+}
+.ctaBtn:hover {
+  background-color: var(--color-accent-hover);
+}
+
+/* Right Column */
+.rightCol {
+  width: 45%;
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 4px;
+  aspect-ratio: 1 / 1;
+  max-height: 600px;
+}
+
+.imgTall {
+  grid-row: span 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.imgSquare1, .imgSquare2 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+@media (max-width: 1024px) {
+  .heroInner {
+    flex-direction: column;
+  }
+  .leftCol, .rightCol {
+    width: 100%;
+  }
+  .imageGrid {
+    height: 300px;
+  }
+}

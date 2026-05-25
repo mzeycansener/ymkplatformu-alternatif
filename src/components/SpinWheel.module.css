@@ -1,0 +1,296 @@
+.campaignSection {
+  position: relative;
+  padding: 100px 0;
+  width: 100%;
+  overflow: hidden; /* only for the bg blob */
+}
+
+.bgBlob {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; 
+  height: 600px;
+  background: radial-gradient(circle, rgba(232, 93, 38, 0.15) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* THE IN-PAGE CARD - PILL SHAPE */
+.campaignCard {
+  position: relative;
+  background: linear-gradient(135deg, #18181B 0%, #27272A 100%);
+  border: 4px solid var(--color-accent);
+  border-radius: 120px; /* massive pill shape */
+  padding: 40px 48px 40px 80px; /* asymmetrical padding */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 32px 64px rgba(0,0,0,0.2), inset 0 0 0 2px rgba(255,255,255,0.05);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.campaignCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 48px 80px rgba(232, 93, 38, 0.25), inset 0 0 0 2px rgba(255,255,255,0.1);
+}
+
+.cardText {
+  flex: 1;
+  max-width: 600px;
+}
+
+.badge {
+  display: inline-block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #111;
+  background-color: #FFE600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(255, 230, 0, 0.3);
+}
+
+.cardTitle {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 48px;
+  font-weight: 700;
+  color: #FAFAF8;
+  margin: 0;
+  text-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.cardSubtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 20px;
+  color: #A1A1AA;
+  margin-top: 16px;
+  margin-bottom: 32px;
+  max-width: 90%;
+  line-height: 1.5;
+}
+
+.cardBtn {
+  background-color: var(--color-accent);
+  color: white;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  padding: 16px 40px;
+  border-radius: 999px;
+  border: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 24px rgba(232, 93, 38, 0.4);
+  cursor: pointer;
+}
+.campaignCard:hover .cardBtn {
+  background-color: #FAFAF8;
+  color: var(--color-accent);
+  transform: scale(1.05);
+}
+
+/* THE POP-OUT WHEEL */
+.cardWheelWrap {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  flex-shrink: 0;
+  /* Pops out of the card bounds */
+  transform: scale(1.4) translateX(20px);
+  filter: drop-shadow(0 24px 48px rgba(0,0,0,0.6));
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.3, 1);
+  pointer-events: none; /* so hover doesn't glitch */
+}
+
+.svgWheel {
+  width: 100%;
+  height: 100%;
+  animation: slowSpin 40s linear infinite;
+}
+
+@keyframes slowSpin {
+  100% { transform: rotate(360deg); }
+}
+
+.campaignCard:hover .cardWheelWrap {
+  transform: scale(1.5) translateX(10px) rotate(15deg);
+}
+
+/* MODAL OVERLAY */
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+.modal {
+  position: relative;
+  background-color: var(--color-surface);
+  border-radius: 16px;
+  padding: 48px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-modal);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-size: 24px;
+  color: var(--color-ink-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.closeBtn:hover {
+  color: var(--color-ink);
+}
+
+.modalHeader {
+  margin-bottom: 32px;
+}
+
+.modalTitle {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.modalSubtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px;
+  color: var(--color-ink-secondary);
+  margin-top: 8px;
+}
+
+/* WHEEL AREA INSIDE MODAL */
+.wheelArea {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pointer {
+  position: absolute;
+  top: -12px;
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 20px solid var(--color-ink);
+  z-index: 10;
+}
+
+.canvas {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  margin-bottom: 32px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+
+.spinBtn {
+  width: 100%;
+  height: 56px;
+  background-color: var(--color-accent);
+  color: white;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+.spinBtn:hover:not(:disabled) {
+  background-color: var(--color-accent-hover);
+}
+
+/* WIN STATE */
+.winState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.prizeName {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 40px;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+.prizeDesc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px;
+  color: var(--color-ink-secondary);
+  margin-top: 8px;
+}
+
+.couponCode {
+  margin-top: 24px;
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px dashed var(--color-border);
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-ink);
+  cursor: pointer;
+  background-color: var(--color-bg);
+  transition: background-color 0.2s ease;
+}
+.couponCode:hover {
+  background-color: var(--color-border);
+}
+
+.ghostBtn {
+  margin-top: 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--color-ink-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.ghostBtn:hover {
+  color: var(--color-ink);
+}
+
+@media (max-width: 960px) {
+  .campaignCard {
+    border-radius: 40px;
+    padding: 40px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .cardWheelWrap {
+    transform: scale(1) translateX(0);
+    margin-top: 40px;
+  }
+  .campaignCard:hover .cardWheelWrap {
+    transform: scale(1.1) translateX(0) rotate(15deg);
+  }
+}

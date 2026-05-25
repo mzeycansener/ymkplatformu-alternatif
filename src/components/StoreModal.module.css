@@ -1,0 +1,243 @@
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 24px;
+}
+
+.modal {
+  background-color: var(--color-surface);
+  width: 100%;
+  max-width: 960px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow-modal);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hide scrollbar */
+.modal::-webkit-scrollbar {
+  width: 6px;
+}
+.modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+/* HEADER */
+.header {
+  position: relative;
+  height: 280px;
+  flex-shrink: 0;
+}
+
+.headerImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.gradientOverlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 36px; height: 36px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-card);
+  color: var(--color-ink);
+  transition: transform 0.2s ease;
+}
+.closeBtn:hover {
+  transform: scale(1.05);
+}
+
+.headerContent {
+  position: absolute;
+  bottom: 24px; left: 32px; right: 32px;
+}
+
+.storeName {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 43px;
+  color: white;
+  margin: 0;
+}
+
+.categoryPill {
+  display: inline-block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-top: 8px;
+  backdrop-filter: blur(4px);
+}
+
+/* INFO BAR */
+.infoBar {
+  background: white;
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.infoLeft {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  color: var(--color-ink-muted);
+  margin: 0 8px;
+}
+
+.campaignPill {
+  background-color: var(--color-accent);
+  color: white;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+
+/* CAMPAIGN PROGRESS */
+.campaignProgressBox {
+  background-color: var(--color-accent-bg);
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.progressLabel {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.progressRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.squares {
+  display: flex;
+  gap: 6px;
+}
+
+.square {
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-border);
+  border-radius: 2px;
+}
+
+.squareFilled {
+  background-color: var(--color-accent);
+}
+
+.progressText {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  color: var(--color-ink-secondary);
+}
+
+/* MENU TABS */
+.menuTabs {
+  display: flex;
+  padding: 0 32px;
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+  overflow-x: auto;
+}
+
+.tabBtn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-ink-secondary);
+  padding: 16px 0;
+  margin-right: 24px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tabBtn:hover {
+  color: var(--color-ink);
+}
+
+.activeTab {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-accent);
+}
+
+/* MENU LIST */
+.menuList {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+  .modal {
+    max-height: 95vh;
+    border-radius: 12px 12px 0 0;
+  }
+  .headerContent {
+    left: 16px; right: 16px;
+  }
+  .infoBar, .campaignProgressBox, .menuTabs {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .infoLeft {
+    flex-wrap: wrap;
+    gap: 4px 0;
+  }
+  .campaignProgressBox {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
